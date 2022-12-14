@@ -21,7 +21,7 @@ namespace pk31LocalChat
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string cs = @"server=localhost;userid=pk31;password=123456;database=chat31";
+           /* string cs = @"server=localhost;userid=pk31;password=123456;database=chat31";
             using var con = new MySqlConnection(cs);
             con.Open();
 
@@ -34,7 +34,7 @@ namespace pk31LocalChat
             {
                 listBox2.Items.Add(rdr.GetString(0));
             }
-            con.Close();
+            con.Close();*/
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -76,12 +76,46 @@ namespace pk31LocalChat
             string cs = @"server=localhost;userid=pk31;password=123456;database=chat31";
             using var con = new MySqlConnection(cs);
             con.Open();
-
             var sql = "INSERT INTO msg(idname, dstname, text) VALUES(@idname, @dstname, @text)";
             using var cmd = new MySqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@idname", userID);
             cmd.Parameters.AddWithValue("@dstname", -1);
             cmd.Parameters.AddWithValue("@text", textBox1.Text);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            //con.Close();
+            textBox1.Clear();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            string cs = @"server=localhost;userid=pk31;password=123456;database=chat31";
+            using var con = new MySqlConnection(cs);
+            con.Open();
+            string sql = "SELECT idname,text,time FROM msg ORDER BY time DESC";
+            using var cmd = new MySqlCommand(sql, con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                listBox1.Items.Add(rdr.GetString(0)+":"+rdr.GetString(1)+"["+rdr.GetString(2)+"]");
+            }
+            con.Close();
+
+            con.Open();
+            listBox2.Items.Clear();
+            string getUsers = "SELECT name FROM users";
+            using var usersList = new MySqlCommand(getUsers, con);
+
+            using MySqlDataReader readUsers = usersList.ExecuteReader();
+
+            while (readUsers.Read())
+            {
+                listBox2.Items.Add(readUsers.GetString(0));
+            }
+            con.Close();
         }
     }
 }
