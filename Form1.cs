@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace pk31LocalChat
 {
@@ -13,12 +14,10 @@ namespace pk31LocalChat
         {
             InitializeComponent();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
            /* string cs = @"server=localhost;userid=pk31;password=123456;database=chat31";
@@ -94,6 +93,8 @@ namespace pk31LocalChat
             using var con = new MySqlConnection(cs);
             con.Open();
             string sql = "SELECT idname,text,time FROM msg ORDER BY time DESC";
+
+            //string x = "SELECT DISTINCT users.name FROM users JOIN msg ON msg.idname = users.id WHERE users.id = 18";
             using var cmd = new MySqlCommand(sql, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HP04X9VU/jjqPpAhmcmGlcfjbRzKkuXEwQ8oKK3l2S4lSUjK41S73Q1mbhqxoY+QkIBdu5Pnvqahee33BFm9cA==",
+  "dgSpecHash": "9FDhsl2+3r09BQqu/cxyjUQWJ8i2c+Qanh68TzwIs8mNpjxgQ2b9itIuFuS1Ni50Z7O+/W2IKgx31CK9lQaJ+Q==",
   "success": true,
   "projectFilePath": "D:\\repos\\pk31LocalChat\\pk31LocalChat.csproj",
   "expectedPackageFiles": [
@@ -23,7 +23,7 @@
     "C:\\Users\\Leo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Leo\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\Leo\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
+    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],
   "logs": []
 }
